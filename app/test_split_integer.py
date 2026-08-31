@@ -21,7 +21,7 @@ def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
 
 def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
     assert (
-        split_integer(9, 4) == sorted(split_integer(9, 4))
+        split_integer(9, 4) == [2, 2, 2, 3]
     )
 
 
@@ -43,7 +43,7 @@ def test_should_compare_len_of_parts_and_number_of_parts() -> None:
     )
 
 
-    def test_only_last_number_is_incremented() -> None:
-        assert (
-            split_integer(8, 3) == [2, 3, 3]
-        )
+def test_only_last_number_is_incremented() -> None:
+    assert (
+        split_integer(8, 3) == [2, 3, 3]
+    )
