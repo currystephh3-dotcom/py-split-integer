@@ -2,9 +2,8 @@ from app.split_integer import split_integer
 
 
 def test_sum_of_the_parts_should_be_equal_to_value() -> None:
-    value, number_of_parts = 8, 4
     assert (
-        sum(split_integer(value, number_of_parts)) == value
+        sum(split_integer(8, 4)) == 8
     ), "Sum of parts should be equal to value"
 
 
@@ -21,9 +20,8 @@ def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
 
 
 def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
-    parts = split_integer(9, 4)
     assert (
-        parts == sorted(parts)
+        split_integer(9, 4) == sorted(split_integer(9, 4))
     )
 
 
@@ -34,15 +32,18 @@ def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
 
 
 def test_should_check_difference_between_max_and_min_values_of_parts() -> None:
-    parts = split_integer(9, 4)
     assert (
-        max(parts) - min(parts) <= 1
+        max(split_integer(9, 4)) - min(split_integer(9, 4)) <= 1
     )
 
 
 def test_should_compare_len_of_parts_and_number_of_parts() -> None:
-    value, number_of_parts = 21, 3
-    parts = split_integer(value, number_of_parts)
     assert (
-        len(parts) == number_of_parts
+        len(split_integer(21, 3)) == 3
     )
+
+
+    def test_only_last_number_is_incremented() -> None:
+        assert (
+            split_integer(8, 3) == [2, 3, 3]
+        )
